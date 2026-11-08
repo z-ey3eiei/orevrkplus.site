@@ -65,7 +65,7 @@ export async function fetchCommunityNews() {
 
   try {
     const response = await fetch(FEED_URL, {
-      headers: { accept: "application/rss+xml, application/xml;q=0.9", "user-agent": "ONENEXT-News/1.0" },
+      headers: { accept: "application/rss+xml, application/xml;q=0.9", "user-agent": "orevrkplus-News/1.0" },
     });
     if (!response.ok) throw new Error(`Feed responded ${response.status}`);
 

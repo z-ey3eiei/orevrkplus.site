@@ -62,7 +62,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-base">
-            ONENEXT gives design engineers the whole stack — file-based routing, server functions and preview
+            orevrkplus gives design engineers the whole stack — file-based routing, server functions and preview
             deployments — so the moment of inspiration ships without waiting on configuration.
           </p>
 

@@ -1,5 +1,5 @@
 /* ============================================================
-   ONENEXT design tokens
+   orevrkplus design tokens
    Extracted from the styles currently used across the app so the
    palette, type scale, spacing, radius and shadow live in one place.
    Loaded after src/index.css, so these values are the active ones.
@@ -17,7 +17,7 @@
   --popover: 0 0% 4%;
   --popover-foreground: 0 0% 100%;
 
-  /* ONENEXT red — keep in sync with brand.config.accent */
+  /* orevrkplus red — keep in sync with brand.config.accent */
   --primary: 0 100% 50%;
   --primary-foreground: 0 0% 100%;
   --accent: 0 100% 45%;

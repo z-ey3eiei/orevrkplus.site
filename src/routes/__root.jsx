@@ -17,9 +17,11 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: brand.name },
       { name: "description", content: brand.description },
+      { property: "og:site_name", content: brand.name },
+      { property: "og:image", content: "https://orevrkplus.site/orevrkplus-logo.png" },
     ],
-    // No icon link: the platform adds the app's logo when serving.
     links: [
+      { rel: "icon", type: "image/svg+xml", href: "/orevrkplus-mark.svg" },
       { rel: "stylesheet", href: appCss },
       { rel: "stylesheet", href: tokensCss },
       {"rel": "preconnect", "href": "https://fonts.googleapis.com"},

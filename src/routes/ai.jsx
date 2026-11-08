@@ -9,9 +9,9 @@ import ChatThread from "@/components/chat/ChatThread";
 import { useActivity } from "@/components/system/ActivityProvider";
 
 const SUGGESTIONS = [
-  "How do I add a server function in ONENEXT?",
+  "How do I add a server function in orevrkplus?",
   "Explain file-based routing in two lines",
-  "Why is ONENEXT fast on mobile?",
+  "Why is orevrkplus fast on mobile?",
 ];
 
 function AiPage() {
@@ -85,13 +85,13 @@ function AiPage() {
       <div className="relative mx-auto max-w-4xl px-4 pb-16 pt-12 sm:px-6 sm:pt-16">
         <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
           <Sparkles className="h-3.5 w-3.5 text-primary" />
-          ONENEXT Assistant
+          orevrkplus Assistant
         </span>
         <h1 className="mt-4 max-w-xl text-[34px] font-semibold leading-[1.06] tracking-tighter text-foreground sm:text-[44px]">
           Ask the framework anything
         </h1>
         <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-foreground/70">
-          Routing, data fetching, rendering or deployment — the assistant answers from the ONENEXT docs, and you can
+          Routing, data fetching, rendering or deployment — the assistant answers from the orevrkplus docs, and you can
           attach a file for context.
         </p>
 
@@ -135,8 +135,8 @@ export const Route = createFileRoute("/ai")({
   ssr: false,
   head: () => ({
     meta: [
-      { title: "ONENEXT Assistant" },
-      { name: "description", content: "Ask the ONENEXT assistant about routing, data fetching, rendering and deployment." },
+      { title: "orevrkplus Assistant" },
+      { name: "description", content: "Ask the orevrkplus assistant about routing, data fetching, rendering and deployment." },
     ],
   }),
 });

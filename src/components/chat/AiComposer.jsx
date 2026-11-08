@@ -100,7 +100,7 @@ export default function AiComposer({ onSend, busy = false }) {
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
             placeholder={focused || value ? "" : typed}
-            aria-label="Message the ONENEXT assistant"
+            aria-label="Message the orevrkplus assistant"
             className="block w-full resize-none border-0 bg-transparent pr-1 text-[15px] leading-relaxed tracking-[-0.012em] text-foreground outline-none placeholder:text-muted-foreground/70"
           />
 

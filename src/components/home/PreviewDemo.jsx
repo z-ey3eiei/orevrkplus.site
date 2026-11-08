@@ -5,7 +5,7 @@ export default function PreviewDemo() {
         <span className="h-2 w-2 rounded-full bg-border" />
         <span className="h-2 w-2 rounded-full bg-border" />
         <span className="h-2 w-2 rounded-full bg-border" />
-        <span className="ml-1 truncate font-mono text-[10.5px] text-muted-foreground">f8sx21h.onenex.app</span>
+        <span className="ml-1 truncate font-mono text-[10.5px] text-muted-foreground">orevrkplus.site</span>
         <span className="ml-auto rounded-full bg-primary/10 px-2 py-0.5 font-mono text-[10px] text-primary">
           preview
         </span>
