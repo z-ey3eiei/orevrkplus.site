@@ -3,7 +3,9 @@
   "name": "orevrkplus-site",
   "main": "src/server.js",
   "compatibility_date": "2026-09-01",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "flagship": [
     {
       "binding": "binding_orevrk",
@@ -26,11 +28,6 @@
       {
         "name": "metadaorevrk_plus",
         "type": "version_metadata"
-      },
-      {
-        "name": "orevrk___plus",
-        "type": "vpc_network",
-        "tunnel_id": "4de9f4ec-747f-4bf0-826f-46b4f575401e"
       }
     ]
   },
@@ -60,12 +57,6 @@
     {
       "binding": "orevrk",
       "bucket_name": "orevrkplus"
-    }
-  ],
-  "vpc_services": [
-    {
-      "binding": "orevrk__plus",
-      "service_id": "01a1b873-0b50-73f0-9f5d-f00a34c7e812"
     }
   ],
   "ratelimits": [
