@@ -1,0 +1,56 @@
+{
+  "name": "NpmVersion",
+  "type": "object",
+  "properties": {
+    "package_name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "tarball_url": {
+      "type": "string"
+    },
+    "shasum": {
+      "type": "string"
+    },
+    "integrity": {
+      "type": "string"
+    },
+    "size": {
+      "type": "number"
+    },
+    "manifest_json": {
+      "type": "string"
+    },
+    "published_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "package_name",
+    "version",
+    "tarball_url"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
