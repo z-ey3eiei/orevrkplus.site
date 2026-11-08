@@ -1,4 +1,7 @@
-name = "orevrkplus.site"
+name = "orevrkplus-site"
+main = "src/server.js"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
 
 [[flagship]]
 binding = "binding_orevrk"
