@@ -1,0 +1,87 @@
+{
+  "name": "orevrkplus.site",
+  "flagship": [
+    {
+      "binding": "binding_orevrk",
+      "app_id": "1ff405f7-7743-430e-a163-b583a2457ae3"
+    }
+  ],
+  "unsafe": {
+    "bindings": [
+      {
+        "name": "binding_orevrk_plus",
+        "type": "durable_object_namespace",
+        "class_name": "BuildContainer",
+        "script_name": "nvx-stack-builder",
+        "namespace_id": "40aaaa164a774017b44bb7caa8000b8e"
+      },
+      {
+        "name": "CF_VERSION_METADATA",
+        "type": "version_metadata"
+      },
+      {
+        "name": "metadaorevrk_plus",
+        "type": "version_metadata"
+      },
+      {
+        "name": "orevrk___plus",
+        "type": "vpc_network",
+        "tunnel_id": "4de9f4ec-747f-4bf0-826f-46b4f575401e"
+      }
+    ]
+  },
+  "hyperdrive": [
+    {
+      "binding": "bingdf",
+      "id": "86f27ef3032e46be8f2a3d8dd60fb9bd"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "db1_orevrk_plus",
+      "database_id": "3eb70187-a8e0-4a63-b8f4-f79db415a69f"
+    }
+  ],
+  "dispatch_namespaces": [
+    {
+      "binding": "namespace_orevrk_plus",
+      "namespace": "one-origin",
+      "outbound": {
+        "service": "orevrk",
+        "parameters": []
+      }
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "orevrk",
+      "bucket_name": "orevrkplus"
+    }
+  ],
+  "vpc_services": [
+    {
+      "binding": "orevrk__plus",
+      "service_id": "01a1b873-0b50-73f0-9f5d-f00a34c7e812"
+    }
+  ],
+  "ratelimits": [
+    {
+      "name": "orevrk_plus",
+      "namespace_id": "10000",
+      "simple": {
+        "limit": 10000,
+        "period": 60
+      }
+    }
+  ],
+  "ai": {
+    "binding": "orevrkplus"
+  },
+  "secrets_store_secrets": [
+    {
+      "binding": "secret_orevrkplus",
+      "store_id": "b56dddabe7d74172932cf26f4a2ab03f",
+      "secret_name": "secretorevrkplus"
+    }
+  ]
+}
