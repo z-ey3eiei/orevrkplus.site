@@ -58,9 +58,7 @@ export default function Header() {
           <Link to={brand.links.home} onClick={() => tap("Home")} className="group flex shrink-0 items-center gap-2">
             <BrandMark className="h-5 w-5 transition-transform duration-300 group-hover:scale-105 sm:h-6 sm:w-6" />
             <span className="flex items-center text-[17px] font-bold tracking-tight sm:text-xl">
-              <span className="mr-0.5 font-medium text-foreground/40" aria-hidden="true">{brand.wordmark.open}</span>
               {brand.name}
-              <span className="ml-0.5 font-medium text-foreground/40" aria-hidden="true">{brand.wordmark.close}</span>
             </span>
           </Link>
 

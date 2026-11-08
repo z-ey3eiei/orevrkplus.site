@@ -8,10 +8,10 @@ export const Route = createFileRoute("/registry")({
   loader: () => listRegistryPackages(),
   head: () => ({
     meta: [
-      { title: "npm registry — ONENEXT" },
+      { title: "npm registry — orevrkplus" },
       {
         name: "description",
-        content: "Install every ONENEXT package straight from our own npm registry, compatible with npm publish and npm install.",
+        content: "Install every orevrkplus package straight from our own npm registry, compatible with npm publish and npm install.",
       },
     ],
   }),
@@ -29,7 +29,7 @@ function RegistryPage() {
         <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
           <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-primary">npm registry</p>
           <h1 className="mt-3 max-w-2xl text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] sm:text-[46px]">
-            Every ONENEXT package, from one registry.
+            Every orevrkplus package, from one registry.
           </h1>
           <p className="mt-4 max-w-xl text-[14.5px] leading-relaxed text-muted-foreground">
             A real npm-compatible registry hosted with the framework. Point npm at it once, then install, publish and

@@ -33,8 +33,8 @@ const AskInput = z.object({
   fileUrls: z.array(z.string().max(2000)).max(3).optional(),
 });
 
-const ASSISTANT_BRIEF = `You are the ONENEXT assistant, a documentation helper for ONENEXT — a full-stack React framework with file-based routing, server functions and streaming built in.
-Answer only about ONENEXT, React, app architecture, deployment and web performance. If a question is off topic, say briefly that you cover ONENEXT and framework topics.
+const ASSISTANT_BRIEF = `You are the orevrkplus assistant, a documentation helper for orevrkplus — a full-stack React framework with file-based routing, server functions and streaming built in.
+Answer only about orevrkplus, React, app architecture, deployment and web performance. If a question is off topic, say briefly that you cover orevrkplus and framework topics.
 Keep answers under 120 words, plain text, no markdown headings or code fences; short lines starting with "- " are fine.`;
 
 export const askAssistant = createServerFn({ method: "POST" })
