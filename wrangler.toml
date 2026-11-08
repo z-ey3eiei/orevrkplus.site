@@ -22,11 +22,6 @@ type = "version_metadata"
 name = "metadaorevrk_plus"
 type = "version_metadata"
 
-[[unsafe.bindings]]
-name = "orevrk___plus"
-type = "vpc_network"
-tunnel_id = "4de9f4ec-747f-4bf0-826f-46b4f575401e"
-
 [[hyperdrive]]
 binding = "bingdf"
 id = "86f27ef3032e46be8f2a3d8dd60fb9bd"
@@ -43,10 +38,6 @@ outbound = { service = "orevrk", parameters = [] }
 [[r2_buckets]]
 binding = "orevrk"
 bucket_name = "orevrkplus"
-
-[[vpc_services]]
-binding = "orevrk__plus"
-service_id = "01a1b873-0b50-73f0-9f5d-f00a34c7e812"
 
 [[ratelimits]]
 name = "orevrk_plus"
