@@ -4,8 +4,16 @@ import CopyLine, { useRegistryOrigin } from "@/components/registry/CopyLine";
 import PackageListItem from "@/components/registry/PackageListItem";
 import PublishGuide from "@/components/registry/PublishGuide";
 
+async function loadRegistryPackages() {
+  try {
+    return await listRegistryPackages();
+  } catch {
+    return [];
+  }
+}
+
 export const Route = createFileRoute("/registry")({
-  loader: () => listRegistryPackages(),
+  loader: () => loadRegistryPackages(),
   head: () => ({
     meta: [
       { title: "npm registry — orevrkplus" },

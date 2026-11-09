@@ -129,4 +129,4 @@ function Showcase() {
   );
 }
 
-export const Route = createFileRoute("/Showcase")({ component: Showcase, ssr: false });
+export const Route = createFileRoute("/Showcase")({ component: Showcase });

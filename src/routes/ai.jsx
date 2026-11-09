@@ -132,7 +132,6 @@ function AiPage() {
 
 export const Route = createFileRoute("/ai")({
   component: AiPage,
-  ssr: false,
   head: () => ({
     meta: [
       { title: "orevrkplus Assistant" },

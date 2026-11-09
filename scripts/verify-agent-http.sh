@@ -26,6 +26,19 @@ echo "=== openapi.json ==="
 curl -sS "$BASE/openapi.json" | head -c 200; echo
 
 echo ""
+echo "=== SSR HTML text length (no JS) ==="
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+for path in / /Docs /Showcase /registry /ai; do
+  html="$(curl -sS -H 'Accept: text/html' "$BASE$path")"
+  len="$(node --input-type=module -e "
+import { documentTextLength, firstHeadingText } from '${ROOT}/src/lib/agent/ssr-html.js';
+const html = process.env.HTML ?? '';
+console.log(documentTextLength(html), firstHeadingText(html));
+" HTML="$html")"
+  echo "$path chars h1: $len"
+done
+
+echo ""
 echo "=== robots.txt ==="
 curl -sS "$BASE/robots.txt"
 

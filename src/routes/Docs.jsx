@@ -172,4 +172,4 @@ function Docs() {
   );
 }
 
-export const Route = createFileRoute("/Docs")({ component: Docs, ssr: false });
+export const Route = createFileRoute("/Docs")({ component: Docs });
