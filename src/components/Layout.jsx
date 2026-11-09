@@ -9,7 +9,7 @@ export default function Layout() {
     <ActivityProvider>
       <div className="flex min-h-screen flex-col bg-background text-foreground pb-[calc(3rem_+_env(safe-area-inset-bottom))]">
         <Header />
-        <main className="flex-1">
+        <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
           <Outlet />
         </main>
         <Footer />

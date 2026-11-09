@@ -76,9 +76,9 @@ export default function Footer() {
           <BrandMark className="w-[22px] h-[22px]" />
           <fieldset className="flex items-center rounded-full border border-border bg-card p-0.5">
             <legend className="sr-only">Select a display theme:</legend>
-            <button type="button" onClick={() => setTheme("system")} aria-label="system" className={`p-1.5 rounded-full transition-colors ${theme === "system" ? "bg-secondary text-foreground" : "text-foreground/60"}`}><Monitor className="w-3.5 h-3.5" /></button>
-            <button type="button" onClick={() => setTheme("light")} aria-label="light" className={`p-1.5 rounded-full transition-colors ${theme === "light" ? "bg-secondary text-foreground" : "text-foreground/60"}`}><Sun className="w-3.5 h-3.5" /></button>
-            <button type="button" onClick={() => setTheme("dark")} aria-label="dark" className={`p-1.5 rounded-full transition-colors ${theme === "dark" ? "bg-secondary text-foreground" : "text-foreground/60"}`}><Moon className="w-3.5 h-3.5" /></button>
+            <button type="button" onClick={() => setTheme("system")} aria-label="Use system theme" aria-pressed={theme === "system"} className={`p-1.5 rounded-full transition-colors ${theme === "system" ? "bg-secondary text-foreground" : "text-foreground/60"}`}><Monitor className="w-3.5 h-3.5" /></button>
+            <button type="button" onClick={() => setTheme("light")} aria-label="Use light theme" aria-pressed={theme === "light"} className={`p-1.5 rounded-full transition-colors ${theme === "light" ? "bg-secondary text-foreground" : "text-foreground/60"}`}><Sun className="w-3.5 h-3.5" /></button>
+            <button type="button" onClick={() => setTheme("dark")} aria-label="Use dark theme" aria-pressed={theme === "dark"} className={`p-1.5 rounded-full transition-colors ${theme === "dark" ? "bg-secondary text-foreground" : "text-foreground/60"}`}><Moon className="w-3.5 h-3.5" /></button>
           </fieldset>
         </div>
       </div>
