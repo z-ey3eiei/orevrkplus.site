@@ -15,7 +15,7 @@ Important notes:
 
 ## Docs
 
-- [Documentation](${SITE}/docs): Product and API overview for humans and agents
+- [Documentation](${SITE}/Docs): Product and API overview for humans and agents
 - [API reference](${SITE}/docs/api): REST endpoints and error format
 - [OpenAPI 3.1](${SITE}/openapi.json): Machine-readable API schema
 

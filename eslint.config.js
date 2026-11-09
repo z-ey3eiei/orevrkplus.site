@@ -19,4 +19,9 @@ export default [
       "no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
     },
   },
+  {
+    // Production Docs page (restored verbatim from fix/orevrkplus-brand).
+    files: ["src/routes/Docs.jsx"],
+    rules: { "no-empty": "off" },
+  },
 ];

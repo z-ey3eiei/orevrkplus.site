@@ -14,10 +14,6 @@ export const Route = createFileRoute("/registry")({
         content: "Install every orevrkplus package straight from our own npm registry, compatible with npm publish and npm install.",
       },
     ],
-    links: [
-      { rel: "alternate", type: "text/markdown", href: "/registry.md" },
-      { rel: "describedby", href: "/llms.txt" },
-    ],
   }),
   component: RegistryPage,
 });

@@ -1,4 +1,4 @@
-import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
+import { ClientOnly, HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
 import { DefaultCatchBoundary } from "@/components/DefaultCatchBoundary";
 import { NotFound } from "@/components/NotFound";
 import { Toaster } from "@/components/ui/sonner";
@@ -49,7 +49,9 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <AuthProvider>
-      <Layout />
+      <ClientOnly>
+        <Layout />
+      </ClientOnly>
       <Toaster />
     </AuthProvider>
   );

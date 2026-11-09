@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import InstallCommand from "@/components/home/InstallCommand";
+import InstallCommand from "@/components/create-ovk-app/InstallCommand";
 import createOvkApp from "@/lib/create-ovk-app.meta";
 
 function CreateOvkAppPage() {

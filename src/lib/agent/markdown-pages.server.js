@@ -33,7 +33,7 @@ Then \`npm install\` and \`npm run dev\`. Edit \`src/\`, build with \`npm run bu
 
 ## Links
 
-- [Documentation](${SITE}/docs)
+- [Documentation](${SITE}/Docs)
 - [create-ovk-app](${SITE}${createOvkApp.sitePath})
 - [npm registry](${SITE}/registry)
 - [Showcase](${SITE}/Showcase)
@@ -43,7 +43,7 @@ Then \`npm install\` and \`npm run dev\`. Edit \`src/\`, build with \`npm run bu
 - [OpenAPI](${SITE}/openapi.json)
 `,
   },
-  "/docs": {
+  "/Docs": {
     title: "orevrkplus API — documentation",
     body: `# orevrkplus API — documentation
 
@@ -160,9 +160,14 @@ Permanent URL: [${SITE}${createOvkApp.sitePath}](${SITE}${createOvkApp.sitePath}
  * @param {string} pathname
  * @returns {string | null}
  */
+const MARKDOWN_ALIASES = {
+  "/docs": "/Docs",
+};
+
 export function markdownForPath(pathname) {
   const normalized = pathname.length > 1 && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
-  const page = PAGES[normalized] || PAGES[pathname];
+  const key = MARKDOWN_ALIASES[normalized] || normalized;
+  const page = PAGES[key] || PAGES[normalized] || PAGES[pathname];
   return page ? page.body : null;
 }
 
@@ -185,7 +190,7 @@ The path \`${pathname}\` does not exist on orevrkplus.
 ## What to try
 
 - [Home](${SITE}/)
-- [Documentation](${SITE}/docs)
+- [Documentation](${SITE}/Docs)
 - [llms.txt](${SITE}/llms.txt) — agent overview and links
 - [Sitemap](${SITE}/sitemap.xml)
 - [OpenAPI](${SITE}/openapi.json)
