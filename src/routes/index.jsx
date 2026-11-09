@@ -92,4 +92,12 @@ function Home() {
     </div>
   );
 }
-export const Route = createFileRoute("/")({ component: Home, ssr: false });
+export const Route = createFileRoute("/")({
+  component: Home,
+  head: () => ({
+    links: [
+      { rel: "alternate", type: "text/markdown", href: "/index.md" },
+      { rel: "describedby", href: "/llms.txt" },
+    ],
+  }),
+});

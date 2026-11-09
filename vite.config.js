@@ -1,4 +1,5 @@
 import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import base44 from "@base44/vite-plugin";
 import { cloudflare } from "@cloudflare/vite-plugin";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
@@ -13,6 +14,9 @@ const { dependencies } = JSON.parse(readFileSync(new URL("./package.json", impor
 const PREBUNDLE = Object.keys(dependencies).filter((name) => !NOT_PREBUNDLED.has(name));
 
 export default defineConfig({
+  resolve: {
+    alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) },
+  },
   optimizeDeps: { include: PREBUNDLE },
   environments: {
     ssr: {
