@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const COMMAND = "npx create-onenex-app@latest";
+
+const INSTALL_COMMAND = "npx create-ovk-app@latest my-app";
 
 const LINES = [
   { kind: "cmd", text: COMMAND },
@@ -16,6 +17,7 @@ const LINES = [
 
 export default function Hero() {
   const [copied, setCopied] = useState(false);
+  const [installCopied, setInstallCopied] = useState(false);
   const [visible, setVisible] = useState(0);
 
   useEffect(() => {
@@ -43,6 +45,16 @@ export default function Hero() {
     }
     setCopied(true);
     setTimeout(() => setCopied(false), 1800);
+  };
+
+  const copyInstallCommand = async () => {
+    try {
+      await navigator.clipboard.writeText(INSTALL_COMMAND);
+      setInstallCopied(true);
+      setTimeout(() => setInstallCopied(false), 1800);
+    } catch {
+      setInstallCopied(false);
+    }
   };
 
   return (
@@ -77,11 +89,15 @@ export default function Hero() {
               </a>
             </Button>
             <Button
-              asChild
+              type="button"
               variant="outline"
-              className="h-11 rounded-full border-border/80 bg-background px-6 text-[14px] font-semibold text-foreground transition-all hover:scale-[1.02] hover:bg-secondary"
+              onClick={copyInstallCommand}
+              aria-label={installCopied ? "Install command copied" : "Copy project creation command"}
+              className="h-11 min-w-0 rounded-full border-border/80 bg-background px-4 text-foreground transition-all hover:scale-[1.02] hover:bg-secondary"
             >
-              <Link to="/ai">Ask the assistant</Link>
+              <span aria-hidden="true" className="text-muted-foreground">$</span>
+              <code className="min-w-0 overflow-x-auto whitespace-nowrap text-xs sm:text-sm">{INSTALL_COMMAND}</code>
+              {installCopied ? <Check aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" /> : <Copy aria-hidden="true" className="h-4 w-4 shrink-0" />}
             </Button>
           </div>
         </div>
