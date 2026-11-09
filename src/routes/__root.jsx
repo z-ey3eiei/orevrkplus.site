@@ -9,6 +9,8 @@ import brand from "@/lib/brand.config";
 import appCss from "@/index.css?url";
 import tokensCss from "@/styles/tokens.css?url";
 
+const SITE_URL = "https://orevrkplus.site";
+
 export const Route = createRootRoute({
   // Per-page <title>/meta come from each route's head(); this is the shared base.
   head: () => ({
@@ -18,16 +20,22 @@ export const Route = createRootRoute({
       { title: brand.name },
       { name: "description", content: brand.description },
       { property: "og:site_name", content: brand.name },
-      { property: "og:image", content: "https://orevrkplus.site/orevrkplus-logo.png" },
+      { property: "og:image", content: `${SITE_URL}/orevrkplus-logo.png` },
+      { property: "og:title", content: brand.name },
+      { property: "og:description", content: brand.description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: brand.name },
+      { name: "twitter:description", content: brand.description },
+      { name: "twitter:image", content: `${SITE_URL}/orevrkplus-logo.png` },
+      { name: "theme-color", content: "#000000" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/orevrkplus-mark.svg" },
       { rel: "stylesheet", href: appCss },
       { rel: "stylesheet", href: tokensCss },
-      {"rel": "preconnect", "href": "https://fonts.googleapis.com"},
-      {"rel": "preconnect", "href": "https://fonts.gstatic.com", "crossOrigin": "anonymous"},
-      {"rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=GeistSans:wght@300;400;500;600;700&display=swap"},
-      {"rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=GeistSans:wght@300;400;500;600;700&display=swap"},
+      { rel: "canonical", href: SITE_URL },
     ],
   }),
   errorComponent: DefaultCatchBoundary,
@@ -56,6 +64,9 @@ function RootDocument({ children }) {
       </head>
       {/* data-react-root: the builder's preview bridge looks for #root and falls back to this. */}
       <body data-react-root="true">
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground">
+          Skip to content
+        </a>
         {children}
         <Base44Scripts />
         <Scripts />

@@ -7,16 +7,17 @@ export default function LogoStrip() {
         Design teams, accelerated.
       </p>
       <div className="fade-x mt-6 overflow-hidden">
-        <div className="animate-marquee flex w-max items-center gap-10 pr-10">
+        <ul className="animate-marquee flex w-max list-none items-center gap-10 p-0 pr-10" aria-label="Teams using orevrkplus">
           {[...LOGOS, ...LOGOS].map((name, index) => (
-            <span
+            <li
               key={`${name}-${index}`}
-              className="whitespace-nowrap text-[17px] font-semibold tracking-tight text-foreground/35"
+              aria-hidden={index >= LOGOS.length ? "true" : undefined}
+              className="whitespace-nowrap text-[17px] font-semibold tracking-tight text-foreground/60"
             >
               {name}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
