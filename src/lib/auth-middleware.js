@@ -7,9 +7,26 @@ import { getRequest, setResponseStatus } from "@tanstack/react-start/server";
 // a handler that never touches Base44 must still answer without them. The
 // platform sets those headers on every request that reaches the server; a
 // visitor's Authorization header makes the client act as that visitor.
+//
+// Outside the Base44 platform (e.g. self-hosted on Cloudflare Workers) the platform
+// headers are absent, so `Base44-App-Id` is filled in from the environment. On the
+// platform the header is already present and the request is passed through untouched.
+const APP_ID_HEADER = "Base44-App-Id";
+
+const withAppId = (request) => {
+  if (request.headers.get(APP_ID_HEADER)) return request;
+  const appId =
+    (typeof process !== "undefined" && (process.env?.BASE44_APP_ID || process.env?.VITE_BASE44_APP_ID)) ||
+    import.meta.env?.VITE_BASE44_APP_ID;
+  if (!appId) return request; // nothing to add: the SDK reports the missing header as before
+  const headers = new Headers(request.headers);
+  headers.set(APP_ID_HEADER, appId);
+  return new Request(request, { headers });
+};
+
 const withGetBase44 = (next, request = getRequest()) => {
   let client;
-  return next({ context: { getBase44: () => (client ??= createClientFromRequest(request)) } });
+  return next({ context: { getBase44: () => (client ??= createClientFromRequest(withAppId(request))) } });
 };
 
 // Applied to every server function by src/start.js: sends the visitor's Base44
