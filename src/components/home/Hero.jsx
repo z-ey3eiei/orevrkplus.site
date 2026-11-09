@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Check, Copy } from "lucide-react";
+import { Check, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const COMMAND = "npx create-onenex-app@latest";
@@ -78,28 +78,17 @@ export default function Hero() {
             deployments — so the moment of inspiration ships without waiting on configuration.
           </p>
 
-          <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <Button
-              asChild
-              className="h-11 rounded-full bg-primary px-6 text-[14px] font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] hover:bg-primary/90"
-            >
-              <a href="#features">
-                Start building
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
-            <Button
-              type="button"
-              variant="outline"
-              onClick={copyInstallCommand}
-              aria-label={installCopied ? "Install command copied" : "Copy project creation command"}
-              className="h-11 min-w-0 rounded-full border-border/80 bg-background px-4 text-foreground transition-all hover:scale-[1.02] hover:bg-secondary"
-            >
-              <span aria-hidden="true" className="text-muted-foreground">$</span>
-              <code className="min-w-0 overflow-x-auto whitespace-nowrap text-xs sm:text-sm">{INSTALL_COMMAND}</code>
-              {installCopied ? <Check aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" /> : <Copy aria-hidden="true" className="h-4 w-4 shrink-0" />}
-            </Button>
-          </div>
+          <Button
+            type="button"
+            variant="outline"
+            onClick={copyInstallCommand}
+            aria-label={installCopied ? "Install command copied" : "Copy project creation command"}
+            className="mt-8 h-[38px] w-fit max-w-full gap-2 rounded-full border-border/80 bg-background px-3 text-foreground transition-all hover:scale-[1.02] hover:bg-secondary"
+          >
+            <span aria-hidden="true" className="text-muted-foreground">$</span>
+            <code className="min-w-0 overflow-x-auto whitespace-nowrap font-mono text-[12px] font-normal sm:text-sm">{INSTALL_COMMAND}</code>
+            {installCopied ? <Check aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" /> : <Copy aria-hidden="true" className="h-4 w-4 shrink-0" />}
+          </Button>
         </div>
 
         <div className="relative mx-auto mt-12 max-w-3xl sm:mt-16">
