@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Search, Sparkles, Github, ChevronDown } from "lucide-react";
+import { Menu, Sparkles, Github, ArrowRight } from "lucide-react";
 import brand from "@/lib/brand.config";
 import BrandMark from "@/components/BrandMark";
 import { useActivity } from "@/components/system/ActivityProvider";
 
 const primaryLinks = [
-  { label: "Docs", to: brand.links.docs },
+  { label: "Docs", href: `${brand.links.github}#readme` },
   { label: "Learn", href: brand.links.learn },
   { label: "Showcase", to: brand.links.showcase },
   { label: "Registry", to: brand.links.registry },
@@ -16,8 +16,8 @@ const primaryLinks = [
 ];
 
 const menuLinks = [
-  { label: "Templates", href: brand.links.templates, chevron: true },
-  { label: "Deploy", href: brand.links.deploy, chevron: true },
+  { label: "Starter", href: brand.links.templates },
+  { label: "Deploy", href: brand.links.deploy },
 ];
 
 export default function Header() {
@@ -62,7 +62,7 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-1 text-[13.5px] font-medium text-foreground/70 sm:flex">
+          <nav className="hidden items-center gap-1 text-[13.5px] font-medium text-foreground/70 xl:flex">
             {primaryLinks.map((link) =>
               link.to ? (
                 <Link
@@ -91,22 +91,15 @@ export default function Header() {
                 className="group flex items-center gap-1 rounded-full px-3 py-2 transition-colors duration-200 hover:bg-muted/70 hover:text-foreground active:scale-95"
               >
                 {link.label}
-                <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-opacity group-hover:opacity-100" />
               </a>
             ))}
           </nav>
         </div>
 
         <div className="hidden items-center gap-3 sm:flex">
-          <button className="group flex w-44 items-center justify-between gap-3 rounded-full border border-border/80 bg-muted/40 px-3 py-1.5 text-sm text-foreground/60 shadow-sm transition-all duration-200 hover:border-border hover:bg-muted/80 hover:text-foreground">
-            <span className="flex items-center gap-2">
-              <Search className="h-4 w-4 opacity-70 group-hover:opacity-100" />
-              Search...
-            </span>
-            <kbd className="rounded border border-border bg-background px-1.5 py-0.5 text-[10px] font-semibold text-foreground/60 shadow-sm">
-              ⌘K
-            </kbd>
-          </button>
+          <Button asChild size="sm" className="h-9 px-4">
+            <a href="/#get-started" onClick={() => tap("Get started")}>Get started <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" /></a>
+          </Button>
           <Button
             asChild
             size="sm"
@@ -129,7 +122,7 @@ export default function Header() {
         </div>
 
         <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
-          <SheetTrigger asChild className="sm:hidden">
+          <SheetTrigger asChild className="xl:hidden">
             <Button variant="ghost" size="icon" aria-label="Open menu" className="h-11 w-11 rounded-full">
               <Menu className="h-5 w-5" />
             </Button>
@@ -143,13 +136,8 @@ export default function Header() {
               >
                 Home
               </Link>
-              <Link
-                to={brand.links.docs}
-                onClick={() => tap("Docs")}
-                className="flex min-h-[52px] items-center justify-between rounded-lg px-2 text-foreground/75 transition-colors active:bg-muted"
-              >
-                Docs
-              </Link>
+              <a href={`${brand.links.github}#readme`} onClick={() => tap("Docs")} className="flex min-h-[52px] items-center rounded-lg px-2 text-foreground/75">Docs</a>
+              <a href="/#get-started" onClick={() => tap("Get started")} className="flex min-h-[52px] items-center rounded-lg px-2 text-primary">Get started <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" /></a>
               <Link
                 to="/ai"
                 onClick={() => tap("Ask AI")}
@@ -191,7 +179,6 @@ export default function Header() {
                   className="flex min-h-[52px] items-center justify-between rounded-lg px-2 text-foreground/75 transition-colors active:bg-muted"
                 >
                   {link.label}
-                  <ChevronDown className="h-4 w-4 opacity-60" />
                 </a>
               ))}
               <div className="my-2 h-px bg-border/80" />
