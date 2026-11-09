@@ -1,4 +1,4 @@
-import { ClientOnly, HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
+import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
 import { DefaultCatchBoundary } from "@/components/DefaultCatchBoundary";
 import { NotFound } from "@/components/NotFound";
 import { Toaster } from "@/components/ui/sonner";
@@ -6,6 +6,7 @@ import { AuthProvider } from "@/lib/AuthContext";
 import { Base44Scripts } from "base44:document";
 import Layout from "@/components/Layout";
 import brand from "@/lib/brand.config";
+import { agentJsonLd, agentMetaKeywords } from "@/lib/agent/seo.js";
 import appCss from "@/index.css?url";
 import tokensCss from "@/styles/tokens.css?url";
 
@@ -17,17 +18,26 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: brand.name },
       { name: "description", content: brand.description },
+      { name: "keywords", content: agentMetaKeywords.join(", ") },
       { property: "og:site_name", content: brand.name },
       { property: "og:image", content: "https://orevrkplus.site/orevrkplus-logo.png" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/orevrkplus-mark.svg" },
+      { rel: "alternate", type: "text/markdown", href: "/index.md" },
+      { rel: "describedby", href: "/llms.txt" },
       { rel: "stylesheet", href: appCss },
       { rel: "stylesheet", href: tokensCss },
       {"rel": "preconnect", "href": "https://fonts.googleapis.com"},
       {"rel": "preconnect", "href": "https://fonts.gstatic.com", "crossOrigin": "anonymous"},
       {"rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=GeistSans:wght@300;400;500;600;700&display=swap"},
       {"rel": "stylesheet", "href": "https://fonts.googleapis.com/css2?family=GeistSans:wght@300;400;500;600;700&display=swap"},
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(agentJsonLd),
+      },
     ],
   }),
   errorComponent: DefaultCatchBoundary,
@@ -39,9 +49,7 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <AuthProvider>
-      <ClientOnly>
-        <Layout />
-      </ClientOnly>
+      <Layout />
       <Toaster />
     </AuthProvider>
   );

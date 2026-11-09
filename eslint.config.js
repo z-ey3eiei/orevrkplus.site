@@ -4,7 +4,7 @@ import globals from "globals";
 
 export default [
   {
-    ignores: ["node_modules", "dist", ".wrangler", ".tanstack", "src/routeTree.gen.ts", "src/components/ui/**"],
+    ignores: ["node_modules", "dist", ".wrangler", ".tanstack", "src/routeTree.gen.ts", "src/components/ui/**", "scripts/**"],
   },
   pluginJs.configs.recommended,
   {
@@ -18,5 +18,10 @@ export default [
       "react-hooks/rules-of-hooks": "error",
       "no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
     },
+  },
+  {
+    // Production Docs page (restored verbatim from fix/orevrkplus-brand).
+    files: ["src/routes/Docs.jsx"],
+    rules: { "no-empty": "off" },
   },
 ];
