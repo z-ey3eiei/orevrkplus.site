@@ -2,22 +2,10 @@ import { Plus } from "lucide-react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 const faqs = [
-  {
-    question: "What do I need installed?",
-    answer: "Node.js 18.18 or newer is all you need. Run npx create-onext-app@latest and the CLI sets up routing, styling and the project structure for you.",
-  },
-  {
-    question: "Where does the server side run?",
-    answer: "Server functions and route handlers run on the edge by default, close to your visitors. Nothing to provision or scale yourself.",
-  },
-  {
-    question: "How are API keys handled?",
-    answer: "Keys live in the app's secrets store and are only readable inside server code. They are never exposed to the browser bundle.",
-  },
-  {
-    question: "Can I keep my own domain?",
-    answer: "Yes. Connect any domain you own and the app serves from it with automatic HTTPS — no DNS expertise required.",
-  },
+  { question: "What do I need installed?", answer: "Node.js 20 or newer. Run npx create-ovk-app@latest my-app, then cd my-app, npm install, and npm run dev." },
+  { question: "Is this a React or Next.js framework?", answer: "No. create-ovk-app generates a Vite-powered static website starter with JavaScript and CSS. It does not include React Server Components, server functions, or a managed backend." },
+  { question: "Which files do I edit?", answer: "Edit src/main.js and src/style.css. Place static assets in public/. npm run build writes the finished website to dist/." },
+  { question: "How do I publish my website?", answer: "Upload the generated dist/ folder to your static host. npm run export creates a ZIP for handoff. For Cloudflare, authenticate Wrangler with your account and run npm run deploy:cloudflare." },
 ];
 
 export default function FaqSection() {

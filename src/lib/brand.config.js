@@ -6,10 +6,10 @@
  */
 export const brand = {
   name: "orevrkplus",
-  tagline: "The React framework for teams that ship",
+  tagline: "The starter for your next website",
   description:
-    "orevrkplus is a full-stack React framework with routing, data loading and rendering built in, so teams can focus on the product instead of the plumbing.",
-  command: "npx create-onenext-app@latest",
+    "Create an OREVRK PLUS website with Vite, edit your source, and build static files ready for your choice of host.",
+  command: "npx create-ovk-app@latest my-app",
   accent: {
     base: "#FF0000", // hsl(0 100% 50%) — --primary
     hover: "#E60000", // hsl(0 100% 45%) — --accent
@@ -20,13 +20,13 @@ export const brand = {
     docs: "/Docs",
     showcase: "/Showcase",
     registry: "/registry",
-    learn: "#",
+    learn: "/#get-started",
     blog: "#",
-    templates: "#",
-    deploy: "#",
-    guides: "#",
-    cli: "#",
-    releases: "#",
+    templates: "https://github.com/devstacksdk/create-ovk-app/tree/main/templates/app",
+    deploy: "/#deploy",
+    guides: "https://github.com/devstacksdk/create-ovk-app#readme",
+    cli: "https://github.com/devstacksdk/create-ovk-app#คำสั่ง",
+    releases: "https://github.com/devstacksdk/create-ovk-app/releases",
     changelog: "#",
     community: "#",
     support: "#",
@@ -44,7 +44,7 @@ export const brand = {
     privacy: "#",
     terms: "#",
     cookies: "#",
-    github: "https://github.com/z-ey3eiei/orevrkplus.site",
+    github: "https://github.com/devstacksdk/create-ovk-app",
     bluesky: "#",
     x: "https://x.com",
   },
