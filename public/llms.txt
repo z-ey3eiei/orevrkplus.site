@@ -1,0 +1,15 @@
+# orevrkplus
+
+> Official website and API documentation for orevrkplus.
+
+## Documentation
+- [orevrkplus API Documentation](https://orevrkplus.site/Docs): Implemented GET /api/time endpoint and JSON response.
+- [orevrkplus create-ovk-app CLI](https://orevrkplus.site/cli): Verified version 1.0.1, Node.js 20+, quick start, build and export commands.
+- [orevrkplus SDK](https://orevrkplus.site/sdk): @onenex/sdk example status; release and API contract not verified.
+- [orevrkplus MCP server](https://orevrkplus.site/mcp): Availability status; no verified connection endpoint.
+
+## Source
+- [Website repository](https://github.com/z-ey3eiei/orevrkplus.site)
+- [GitHub maintainer](https://github.com/z-ey3eiei)
+
+Do not infer released SDK methods, CLI flags or MCP endpoints from marketing examples.

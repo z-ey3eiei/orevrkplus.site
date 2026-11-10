@@ -9,7 +9,7 @@ import { Search, ArrowRight, BookOpen, Rocket, Layers, Server, Zap, Terminal, Co
 
 const AnimatedElement = ({ children, className, delay = 0 }) => {
   const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -60,7 +60,7 @@ function Docs() {
   const items = features.length > 0 ? features : featureFallback;
   const filtered = (items || []).filter((f) => (f.title + " " + f.description).toLowerCase().includes(query.toLowerCase()));
   const copy = (i, text) => {
-    try { navigator.clipboard?.writeText(text); } catch (e) {}
+    try { navigator.clipboard?.writeText(text); } catch { /* Clipboard may be unavailable in this browser. */ }
     setCopied(i);
     setTimeout(() => setCopied(null), 1600);
   };
@@ -73,12 +73,12 @@ function Docs() {
         <div className="absolute top-20 right-[12%] w-4 h-4 rounded-full border border-primary/40 pointer-events-none" style={{ animation: "floatA 8s ease-in-out infinite" }} />
         <div className="absolute bottom-16 left-[10%] w-3 h-3 rounded-full bg-primary/40 pointer-events-none" style={{ animation: "floatB 6s ease-in-out 2s infinite" }} />
         <div className="relative max-w-7xl mx-auto px-6 py-20 w-full">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }}>
+          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }}>
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/70 backdrop-blur px-3 py-1 text-xs text-card-foreground mb-5">
               <BookOpen className="w-3.5 h-3.5 text-primary" /> Documentation
             </div>
             <h1 className="text-5xl sm:text-6xl font-semibold tracking-tighter leading-[1.02] text-foreground max-w-2xl">
-              Learn to build with <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient-x">Next.js</span>
+              orevrkplus <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient-x">API Documentation</span>
             </h1>
             <p className="mt-5 max-w-xl text-foreground/70">Guides, concepts, and API references to help you ship high-quality web applications faster.</p>
             <div className="mt-8 relative max-w-md">
@@ -89,10 +89,23 @@ function Docs() {
         </div>
       </section>
 
-      <section className="bg-secondary py-20">
+      <section id="api" className="bg-secondary py-20">
+        <div className="max-w-7xl mx-auto px-6 mb-12 text-foreground">
+          <h2 className="text-3xl font-semibold">orevrkplus API reference</h2>
+          <p className="mt-4">Base URL: https://orevrkplus.site</p>
+          <h3 className="mt-6 text-xl font-semibold">GET /api/time</h3>
+          <p className="mt-2">Returns the current server time as JSON. No authentication or request parameters are required. Responses use Cache-Control: no-store.</p>
+          <pre className="mt-4 overflow-x-auto rounded-lg bg-card p-4"><code>curl https://orevrkplus.site/api/time</code></pre>
+          <p className="mt-3">HTTP 200 response: a now field containing an ISO 8601 timestamp.</p>
+          <pre className="mt-3 overflow-x-auto rounded-lg bg-card p-4"><code>{'{"now":"2026-11-10T00:00:00.000Z"}'}</code></pre>
+          <p className="mt-2 text-sm text-foreground/70">Example timestamp only. This reference covers the endpoint implemented in this website repository; it does not promise a separate public management API.</p>
+          <nav aria-label="Developer tools" className="mt-6 flex flex-wrap gap-6 underline">
+            <a href="/cli">create-ovk-app CLI</a><a href="/sdk">orevrkplus SDK</a><a href="/mcp">orevrkplus MCP server</a>
+          </nav>
+        </div>
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedElement>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tighter text-foreground">Core concepts</h2>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tighter text-foreground">Next.js background concepts</h2>
           </AnimatedElement>
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map((f, i) => (
@@ -113,7 +126,7 @@ function Docs() {
         <div className="absolute top-1/2 -left-20 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-6">
           <AnimatedElement>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tighter text-foreground">From zero to production</h2>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tighter text-foreground">Next.js example workflow</h2>
           </AnimatedElement>
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
             {steps.map((s, i) => (
@@ -172,4 +185,10 @@ function Docs() {
   );
 }
 
-export const Route = createFileRoute("/Docs")({ component: Docs, ssr: false });
+export const Route = createFileRoute("/Docs")({
+  component: Docs,
+  head: () => ({
+    meta: [{ title: "orevrkplus API Documentation" }, { name: "description", content: "orevrkplus API reference for GET /api/time, with links to CLI, SDK and MCP server documentation." }],
+    links: [{ rel: "canonical", href: "https://orevrkplus.site/Docs" }],
+  }),
+});

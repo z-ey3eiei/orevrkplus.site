@@ -23,13 +23,15 @@ export default function Footer() {
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-10 text-sm">
           <section className="flex flex-col gap-3">
             <h2 className="font-semibold text-foreground text-xs">Get started</h2>
-            <Link to={brand.links.docs} className="text-foreground/70 hover:text-primary transition-colors">Docs</Link>
+            <Link to={brand.links.docs} className="text-foreground/70 hover:text-primary transition-colors">API Docs</Link>
             <a href={brand.links.learn} className="text-foreground/70 hover:text-primary transition-colors">Learn</a>
             <Link to={brand.links.showcase} className="text-foreground/70 hover:text-primary transition-colors">Showcase</Link>
             <a href={brand.links.blog} className="text-foreground/70 hover:text-primary transition-colors">Blog</a>
             <a href={brand.links.templates} className="text-foreground/70 hover:text-primary transition-colors">Templates</a>
             <a href={brand.links.deploy} className="text-foreground/70 hover:text-primary transition-colors">Deploy</a>
             <a href={brand.links.guides} className="text-foreground/70 hover:text-primary transition-colors">Guides</a>
+            <a href="/mcp" className="text-foreground/70 hover:text-primary transition-colors">MCP server</a>
+            <a href="/sdk" className="text-foreground/70 hover:text-primary transition-colors">SDK</a>
             <a href={brand.links.cli} className="text-foreground/70 hover:text-primary transition-colors">CLI</a>
             <a href={brand.links.releases} className="text-foreground/70 hover:text-primary transition-colors">Releases</a>
             <a href={brand.links.changelog} className="text-foreground/70 hover:text-primary transition-colors">Changelog</a>
@@ -48,6 +50,7 @@ export default function Footer() {
           </section>
           <section className="flex flex-col gap-3">
             <h2 className="font-semibold text-foreground text-xs">About {brand.name}</h2>
+            <a href="https://github.com/z-ey3eiei" className="text-foreground/70 hover:text-primary transition-colors">GitHub maintainer</a>
             <a href={brand.links.about} className="text-foreground/70 hover:text-primary transition-colors">About {brand.name}</a>
             <a href={brand.links.why} className="text-foreground/70 hover:text-primary transition-colors">Why {brand.name}</a>
             <a href={brand.links.openSource} className="text-foreground/70 hover:text-primary transition-colors">Open Source Software</a>
